@@ -1,11 +1,11 @@
 # Use official PHP image with Apache
 FROM php:8.2-apache
 
-# Copy all files into the container
+# Copy all project files to web root
 COPY . /var/www/html/
 
-# Expose port 10000 (Render expects your app to run on this)
-EXPOSE 10000
+# Expose web server port
+EXPOSE 80
 
-# Start the PHP built-in server
-CMD ["php", "-S", "0.0.0.0:10000", "-t", "/var/www/html"]
+# Start Apache
+CMD ["apache2-foreground"]
