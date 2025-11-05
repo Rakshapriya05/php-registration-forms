@@ -4,6 +4,9 @@ FROM php:8.2-apache
 # Copy all project files to web root
 COPY . /var/www/html/
 
+# Set correct permissions
+RUN chmod -R 755 /var/www/html
+
 # Expose web server port
 EXPOSE 80
 
